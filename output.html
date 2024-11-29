@@ -23,7 +23,11 @@
           }
         </style>
         <title>Hello World</title>
-    </head>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/atom-one-light.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+     </head>
     <body ng-app="">
         <header>
             <form class="d-flex">
@@ -41,12 +45,109 @@
                 <h1>Output in C++</h1>
                 <h2>Text Output</h2>
                 <section>
-                    
+                    <p>
+                        Notice how we output "Hello World!"? In fact, you can output anything you like by changing the words in the double quotes! It's that easy!
+                        <div class="alert alert-info">
+                          <details>
+                            <summary>Example:</summary>
+                            <pre>cout &lt;&lt; "Whatever, just text.";</pre>
+                          </details>
+                        </div>
+                    </p>
                 </section>
+                <h2>Numbers Output</h2>
+                <section>
+                  <p>
+                      Replacing the double quotes with a number results in the number being outputted. This works with not only integers, but also decimals. 
+                      Note that it will automatically truncate the number until six-seven digits remain. This is due to the method that C++ stores decimals and we will cover that later.
+                      <div class="alert alert-info">
+                        <details>
+                          <summary>Example:</summary>
+                          <pre>cout &lt;&lt; 123456789.123456789;</pre> outputs <pre>1.23457e+08</pre>, meaning \(1.23457 \times 10^8\).
+                          <br>
+                          <pre>cout &lt;&lt; 0.123456789;</pre> outputs <pre>0.123457</pre>.
+                        </details>
+                      </div>
+                  </p>
+                </section>
+                <h2>Escape Characters</h2>
+                <section>
+                  <p>
+                    What happens of you try to output a newline? C++ ignores whitespace, so <pre>cout &lt;&lt; "<br>";</pre> does not work.
+                    To include a newline, you need to escape it with a backslash. <pre>cout &lt;&lt; "\n";</pre> outputs a newline.
+                    This is called "escape characters", meaning the character combination changes its meaning. A few common ones include:
+                    <table>
+                      <tr>
+                        <th>Character</th>
+                        <th>Meaning</th>
+                      </tr>
+                      <tr>
+                        <td>\n</td>
+                        <td>Newline</td>
+                      </tr>
+                      <tr>
+                        <td>\t</td>
+                        <td>Tab</td>
+                      </tr>
+                      <tr>
+                        <td>\r</td>
+                        <td>Carriage Return</td>
+                      </tr>
+                      <tr>
+                        <td>\v</td>
+                        <td>Vertical Tab</td>
+                      </tr>
+                      <tr>
+                        <td>\f</td>
+                        <td>Form Feed</td>
+                      </tr>
+                      <tr>
+                        <td>\b</td>
+                        <td>Backspace</td>
+                      </tr>
+                      <tr>
+                        <td>\a</td>
+                        <td>Alert</td>
+                      </tr>
+                      <tr>
+                        <td>\\</td>
+                        <td>Backslash</td>
+                      </tr>
+                      <tr>
+                        <td>\"</td>
+                        <td>Double quote</td>
+                      </tr>
+                      <tr>
+                        <td>\'</td>
+                        <td>Single quote</td>
+                      </tr>
+                      <tr>
+                        <td>\%</td>
+                        <td>Percent sign</td>
+                      </tr>
+                    </table>
+                    For more, please visit <a href="https://en.cppreference.com/w/cpp/language/escape">https://en.cppreference.com/w/cpp/language/escape</a>
+                  </p>
+                  <p>
+                    There is one more trick of outputting these characters: Raw String Literals. Introduced in C++11 (a version published in the year 2011), these string
+                    literals ignore no whitespace and perform no escaping -- they are outputted just as they are. 
+                    They are used like so: <pre>R"(STRING_CONTENT)"</pre>.
+                    <div class="alert alert-info">
+                      <details>
+                        <summary>Example:</summary>
+                        <pre>cout &lt;&lt; R"(this is a \n raw string literal)";</pre> will output <pre>this is a \n raw string literal</pre>
+                      </details>
+                    </div>
+                  </p>
+                </section>
+                <p>Now head on to <a href="variables.html">the next page</a> to learn about variables!</p>
+
             </div>
 
           </main>
           <script src="darkmode.js"></script>
           <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+          <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+          
     </body>
 </html>

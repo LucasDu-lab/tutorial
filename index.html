@@ -20,6 +20,9 @@
           }
         </style>
         <title>Kickstart Your C++</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/atom-one-light.min.css" id="highlight">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js" ></script>
+        <script>hljs.highlightAll();</script>
     </head>
     <body ng-app="">
         <header>
@@ -44,20 +47,20 @@
                 <img src="images/index/image2.png">
                 <p>Click on "open folder", select a folder, and this will show:</p>
                 <img src="images/index/leftbar.png">
-                <p>Hover over this bar con the "C++ TUTORIAL"(or your folder name) area, and you should see a few icons, the leftmost is the "New file" icon, click on this icon, name you file "hello.cpp", and paste in the following code:</p>
-                <pre>
+                <p>Hover over this bar con the "C++ TUTORIAL"(or your folder name) area, and you should see a few icons, the leftmost is the "New file" icon, click on this icon, name your file "hello.cpp", and paste in the following code:</p>
+                <pre><code>
                   #include&lt;iostream&gt;
                     using namespace std;
                     int main(){
                         cout&lt;&lt;&quot;Hello world!&quot;&lt;&lt;endl;
                         return 0;
-                    }
+                    }</code>
                 </pre>
-                <p>Now, there is a triangle with a bug at the top-right corner, click on the down arrow at the right of this icon, and select "Run C/C++ File", then select you compiler.</p>
+                <p>Now, there is a triangle with a bug at the top-right corner, click on the down arrow at the right of this icon, and select "Run C/C++ File", then select your compiler.</p>
                 <img src="images/index/run.png">
                 <p>The bottom area of the code editor, the terminal, should now show the following content:</p>
                 <img src="images/index/terminal.png">
-                <p>Navigate to "Terminal", and the output of the progrma should be shown:</p>
+                <p>Navigate to "Terminal", and the output of the program should be shown:</p>
                 <pre>Hello World!</pre>
                 <p>Congrats! You have now created you first program!</p>
                 <p>Now head to the <a href="helloworld.html">Next Page</a> to learn how this program works.</p>
@@ -65,5 +68,6 @@
 
         </main>
         <script src="darkmode.js"></script>
+        
     </body>
 </html>
