@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <meta name="description" content="intro to c++">
+        
+        
+        <style>
+          form{
+            float:right;
+            width:10%;
+            margin-right:1%;
+            margin-top:1%;
+          }
+          img{
+            width:auto !important;
+          }
+          pre{
+            display:inline;
+          }
+        </style>
+        <title>Hello World</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/atom-one-light.min.css" id="highlight">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js" ></script>
+        <script>hljs.highlightAll();</script>
+    </head>
+    <body ng-app="">
+        <header>
+            <form class="d-flex">
+                <select class="form-select" name="color" id="color">
+                  <option value="light">Light Mode</option>
+                  <option value="dark">Dark Mode</option>
+                </select>
+              </form>
+          </header>
+          <main class="container-fluid row">
+            <aside class="container-fluid col-sm-3">
+                <div ng-include="'navbar.html'"></div>
+            </aside>
+            <div class="container-fluid col-sm-9">
+                <h1>Variables</h1>
+                <p>Before we look at variables, we have to look at something called "comments"</p>
+                <h2>Comments</h2>
+                <p>A comment is something that is put in your code that won't be executed, it can be used to prevent unwanted
+                    code execution or to annotate code.
+                    <br>
+                    There are two types of comments: single-lined and multi-lined.
+                    <br>
+                    Single-line comments start with "//" and end at the end of the line.
+                    <div class="alert alert-info">
+                        <details>
+                            <summary>Example:</summary>
+                            <pre>
+                                <code>
+// This is a single-line comment
+int x = 5; // This is a single-line comment and also a declaration and initialization of a variable.
+                                </code>
+                            </pre>
+                        </details>
+                    </div>
+                    <br>
+                    Multi-lined comments start with "/*" and end with "*/".
+                    <div class="alert alert-info">
+                        <details>
+                            <summary>Example:</summary>
+                            <pre>
+                                <code>
+/* this is a multi-line comment
+comment continues
+until
+here*/co/*comments can be placed here.*/ut&lt;&lt;"ends";
+                                </code>
+                            </pre>
+                        </details>
+                    </div>
+                </p>
+                <h2>Variables</h2>
+                <p>
+                    Variables are containers for storing data values. The values they store are not fixed but the type of the value is.
+                    They are declared by specifying the type and the name, an optional value is provided.
+                    Variable naming rules include:
+                    <ol>
+                        <li>English alphabets and underscores may be included anywhere.</li>
+                        <li>Numbers may be included, but not the first character of the name.</li>
+                        <li>Other characters are prohibited.</li>
+                        <li>Variable names may not conflict with C++ keywords and existing names, they include:
+                            <pre><code>for,while,do,if,else,int,short,long,double,float,bool,true,false,vector,string,array,...</code></pre>
+                            and stuff that are previously declared in the program
+                        </li>
+                        <li>
+                            Variable names are case-sensitive, so "x" and "X" are different variables.
+                        </li>
+                        <li>
+                            It is advised that variable names do not start with two underscores, as those are commonly
+                            used by internal functions and variables, e.g. <code>__x,__gcd,__gnu_pbds,__cplusplus,__GLIBCXX_IOSTREAM</code>
+                        </li>
+                    </ol>
+                </p>
+                <h3>Common Types</h3>
+                <p>For integers, we typically used <code>int</code> and <code>long long</code> 
+                    that can store integer values in the range \([-2^{31},2^{31}-1(\text{equal to }2147483647)]\) and \([-2^{63}(\approx 9\cdot10^{18}),2^{63}-1]\), respectively.
+                </p>
+                <p>
+                    A machine stores integers by the following manner:
+                    <ol>
+                        <li>
+                            Obtain binary representation of number. If number is positive, add 0 in front of it, else add 1, this aded number is the sign bit.
+                        </li>
+                        <li>
+                            If the number is positive, store it directly.
+                        </li>
+                        <li>
+                            If the number is negative, flip all bits of the binary representation (except the sign bit) and add 1 to it. Store the result.
+                        </li>
+
+                    </ol>
+                    <br>
+                    An int uses 32 bits while a long long uses 64. You can also declare unsigned version of them by adding <code>unsigned</code> before the type. the unsigned versions, 
+                    with no sign bit, are capable of extending the upper and lower bounds to twice as usual.
+                </p>
+                <p>
+                    Other integer types include <code>long</code>, which can store the same things as an <code>int</code>, and short, which uses only 16 bits.
+                    <br>
+                    <details>
+                        <summary>Quiz: what is the range capable for a <code>short</code> to store?</summary>
+                        A short can store \([-2^{15},2^{15}-1]\) which is \([-32768,32767]\).
+                    </details>
+                </p>
+                <p>
+                    Characters are stored in the <code>char</code> type, of range \([-128,127]\). There is an unsigned version.
+                    They are stored by their ASCII values, a table can be found <a href="https://www.asciitable.com/">here</a>.
+                    A single character can be represented by the character itself in single quotes.
+                </p>
+                <p>
+                    Real numbers (decimals) are stored in <code>float</code>, <code>double</code>, and <code>long double</code> types.
+                    They do not have unsigned versions. Computers store decimals in three parts: the sign, the exponent, and the fractional part.
+                    They correspond to \(\text{fractional}\cdot2^\text{exponent}\). A float uses 1 bit for sign, 8 bits for exponent, and 23 bits for fractional.
+                    A double uses 1 bit for sign, 11 bits for exponent, and 52 bits for fractional.
+                    As for a long double ... It depends on what type of machine you store.
+                    If on a 32-bit machine, it is the same as a double. If on a x87, it occupies 80 bits. If on a 64-bit, it uses 128 bits.
+                    The 80- and 128-bit version both use 15 bits for exponent. Note that the exponent can be negative, so 1 of the exponent section is actually the sign bit!
+                    <table>
+                        <tr>
+                            <th>Type</th>
+                            <th>Storage Range</th>
+                            <th>Precision</th>
+                        </tr>
+                        <tr>
+                            <td>float</td>
+                            <td>\(\pm1.18\times10^{-38} \text{ to } \pm3.4\times10^{38} \text{ and } 0.0\)</td>
+                            <td>6-9, usually 7 decimal places</td>
+                        </tr>
+                        <tr>
+                            <td>double</td>
+                            <td>\(\pm2.23\times10^{-308} \text{ to } \pm1.8\times10^{308} \text{ and } 0.0\)</td>
+                            <td>approximately 15 decimal places</td>
+                        </tr>
+                        <tr>
+                            <td>long double (80-bit)</td>
+                            <td>\(\pm3.36\times10^{-4932} \text{ to } \pm1.18\times10^{4932} \text{ and } 0.0\)</td>
+                            <td>approximately 18-21 decimal places</td>
+                        </tr>
+                        <tr>
+                            <td>long double</td>
+                            <td>\(\pm3.36\times10^{-4932} \text{ to } \pm1.18\times10^{4932} \text{ and } 0.0\)</td>
+                            <td>approximately 33-36 decimal places</td>
+                        </tr>
+                    </table>
+                </p>
+                <p>
+                    Notes: above data are for 64-bit devices, on 32-bit devices, upper and lower bounds for <code>int</code>s and <code>long long</code>s will half.
+                </p>
+                <h2>Variable declaration</h2>
+                <p>
+                    A variable is like a box for data. In order to store data in the box, you need to have the box first.
+                    The process of getting this box is known as declaration.
+                    Declaration is in the format <code>Typename VarName</code>. 
+                    <div class="alert alert-info">
+                        <details>
+                            <summary>Example:</summary>
+                            <pre>
+                                <code>
+                                    int age; //declare variable of type int and name age
+                                    double weight;
+                                    char grade;
+                                    long long studentID;
+                                    bool isStudent;
+                                    float pi;
+                                    double e;
+                                    long double phi;
+                                    short shortNumber;
+                                    char character;
+                                    unsigned int uNumber;
+                                    unsigned char uCharacter;
+                                    unsigned short uShortNumber;
+                                    unsigned long long uLongNumber;
+                                </code>
+                            </pre>
+                        </details>
+                    </div>
+                </p>
+                <p>
+                    You need to put stuff in the box now. This is known as assignment. Assignment is done in the format <code>VarName = Value</code>.
+                    Note that the spaces (whitespace) is not necessary. Declaration and assignment can be put together, like <code>TypeName VarName = Value</code>
+                    <div class="alert alert-info">
+                        <details>
+                            <summary>Example:</summary>
+                            <pre>
+                                <code>
+                                    int age = 25;
+                                    age = age + 1; //Student has gone older
+                                    /*age++ is an alternate for age=age+1
+                                    so is age-- for age=age-1
+                                    ++age and --age also works*/
+                                    double weight = 75.5;
+                                    char grade = 'A';
+                                    long long studentID = 1234567890123456789;
+                                    bool isStudent = true;
+                                    float pi = 3.14159;
+                                    double e = 2.71828;
+                                    long double phi = 1.61803;
+                                    short shortNumber = 123;
+                                    char character = 'c';
+                                    unsigned int uNumber = 1234567890;
+                                    unsigned char uCharacter = 255;
+                                    unsigned short uShortNumber = 65535;
+                                    unsigned long long uLongNumber = 18446744073709551615;
+                                    /*
+                                    age=age+1 returns a value of age+1, which means when using
+                                    int b=(a=a+1);
+                                    it will assign the value of a+1 to b. 
+                                    b=a++ will assign a to b, and then execute a=a+1,
+                                    b=++a will execute a=a+1, and then assign a to b.
+                                    */
+                                </code>
+                            </pre>
+                        </details>
+                    </div>
+                    
+                </p>
+                <h2>Output Variables</h2>
+                <p>
+                    Outputting a variable is just like doing so to a number. For example:
+                    <pre>
+                        <code>
+                            int MyAge=12;
+                            cout &lt;&lt; myAge &lt;&lt; endl;
+                        </code>
+                    </pre>
+                </p>
+                <p>
+                    Now head to the <a href="input.html">next section</a> to learn about input!
+                </p>
+            </div>
+
+          </main>
+          <script src="darkmode.js"></script>
+          <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+          <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>
