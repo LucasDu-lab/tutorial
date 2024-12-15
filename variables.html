@@ -241,10 +241,36 @@ here*/co/*comments can be placed here.*/ut&lt;&lt;"ends";
                     </div>
                     
                 </p>
+                <h2>
+                    Constants
+                </h2>
+                <p>
+                    Constants are variables that cannot be changed and are declared with <code>const</code> before the variable type.
+                    It can be used ike any other variable with one exception: it cannot be changed and must be assigned together with initialization.
+                     Constant are usually declared with names in all caps.
+                    <div class="alert alert-info">
+                        <details>
+                            <summary>Example Usage: </summary>
+                            <pre>
+                                <code>
+                                    #include&lt;iostream&gt;
+                                    using namespace std;
+                                    int main(){
+                                        const int N=10;//declare constant N with value 10
+                                        int sz=2*N+10;//size is a function, so its name may not be used
+                                        //const int ERR;//Compile error will be caused by uncommenting this line
+                                        //N+=10;//so will this
+                                        return 0;
+                                    }
+                                </code>
+                            </pre>
+                        </details>
+                    </div>
+                </p>
                 <h2>Output Variables</h2>
                 <p>
                     Outputting a variable is just like doing so to a number. For example:
-                    <pre>
+                    <pre class="cpp">
                         <code>
                             int MyAge=12;
                             cout &lt;&lt; myAge &lt;&lt; endl;
